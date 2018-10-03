@@ -12,8 +12,8 @@ The React source (`/src`) was built using `create-react-app@2.0.2` (link). If a 
 
 ## Requisites
 * Docker
-* npm
-* nodeJS
+* npm >= 6 
+* NodeJS >= 8
 
 ## Quick Reference
 * React Dev Server (frontend)
@@ -53,4 +53,4 @@ This command will read the `docker-compose.yml` file, which specifies *build* pa
 While `docker-compose` is running, press `CTRL+C`. Status will show Docker container instances terminating. If the environment is running in the background (`-d` command line param), you can use `docker-compose down` to terminate the environment.
 
 ### Connecting to MySQL with a client
-MySQL running as a Docker container registers itself on the local machine, so the host is `localhost`, or more reliably `127.0.0.1` loopback address. The username and password (defined in `docker-compose.yml`) default to `root`.
+MySQL running as a Docker container registers itself on the local machine, so the host is `localhost`, or more reliably `127.0.0.1` loopback address. The username and password (defined in `docker-compose.yml`) default to `root`, and the port is default `3306`.
