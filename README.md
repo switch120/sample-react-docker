@@ -36,6 +36,7 @@ This is not an exhaustive list, just some worth noting
 ### Getting started (first run)
 Build the Images first: `docker-compose build`
 > Note: This is done only once, unless there is a need to delete the image from docker (`docker images rm [imageGuid]`(link))
+This command will read the `docker-compose.yml` file, which specifies *build* parameters (in Ruby syntax (link)) as directories that contain a `Dockerfile` (link) spec.
 
 ### Starting the Environment
 `docker-compose up`
