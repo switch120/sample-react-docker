@@ -1,8 +1,14 @@
 # React, MySQL, Express API Docker Shell
 
-This project is intended to serve as a base shell for a full-stack React application with a MySQL Database and an Express backend API. The environment is defined using *docker-compose* (link), which runs three independent containers for React, MySQL, and Express.
+This project is intended to serve as a base shell for a full-stack React application with a MySQL Database and an Express backend API. The environment is defined using *docker-compose* (link), which runs three independent containers for React, MySQL, and Express simultaneously.
 
 Both the React Dev server and the Express server will automatically detect changes and recompile automatically. Output from both can be seen while the environment is running in the foreground (i.e., without the `-d` flag (link))
+
+The React source (`/src`) was built using `create-react-app@2.0.2` (link). If a more recent version is preferred, the `/src` folder can safely be replaced in its entirety as long as the start command is still `npm start`.
+
+> **Important Note** - if you use this repository more than once, be sure to update each `Dockerfile` *and* the `docker-compose.yml` file to match with new image names so as not to use existing registered containers on your system.
+
+> **Less important note** - this repo contains some extra Docker scripts in the `package.json` file. They represent some pretty cool features of NPM, and if used correctly would allow you to run a single docker container just with `npm run` commands. This was abandoned in favor if the *much easier* `docker-compose`, but it seemed worthwhile to leave them in there for reference, in partcular, `npm run docker:ssh` which works after running `npm run docker` and gives you SSH terminal access to the Docker container running React.
 
 ## Requisites
 * Docker
@@ -26,20 +32,20 @@ This is not an exhaustive list, just some worth noting
 
 ```
 +-- /api                          : Express Server 
-|   +-- /Dockerfile               : Docker build config for Express
+|   +-- /Dockerfile               : Docker build spec for Express
 +-- /src                          : React App
-+-- /Dockerfile                   : Docker build config for React
-+-- /docker-compose.yml           : Docker environment config
++-- /Dockerfile                   : Docker build spec for React
++-- /docker-compose.yml           : Docker environment spec
 +-- /.dockerignore                : Docker copy ignore (link)
 ```
 
 ### Getting started (first run)
 Build the Images first: `docker-compose build`
-> Note: This is done only once, unless there is a need to delete the image from docker (`docker images rm [imageGuid]`(link))
+> Note: This is done only once, unless there is a need to delete the image from docker (`docker images rm [imageGuid]`(link)).
 This command will read the `docker-compose.yml` file, which specifies *build* parameters (in Ruby syntax (link)) as directories that contain a `Dockerfile` (link) spec.
 
 ### Starting the Environment
 `docker-compose up`
 
 ### Terminating Environment
-While `docker-compose` is running, press `CTRL+C`. Status will show Docker container instances terminating.
+While `docker-compose` is running, press `CTRL+C`. Status will show Docker container instances terminating. If the environment is running in the background (`-d` command line param), you can use `docker-compose down` to terminate the environment.
