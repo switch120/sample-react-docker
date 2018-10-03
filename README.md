@@ -11,7 +11,7 @@ The React source (`/src`) was built using `create-react-app@2.0.2` (link). If a 
 > **Less important note** - this repo contains some extra Docker scripts in the `package.json` file. They represent some pretty cool features of NPM, and if used correctly would allow you to run a single docker container just with `npm run` commands. This was abandoned in favor if the *much easier* `docker-compose` for a true full-stack environment, but it seemed worthwhile to leave them in there for reference, in partcular, `npm run docker:ssh` which works after running `npm run docker` and gives you SSH terminal access to the Docker container running React.
 
 ## Requisites
-* Docker
+* Docker (link)
 * npm >= 6 
 * NodeJS >= 8
 
