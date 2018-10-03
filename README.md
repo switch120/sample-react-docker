@@ -52,5 +52,10 @@ This command will read the `docker-compose.yml` file, which specifies **build** 
 ### Terminating Environment
 While `docker-compose` is running, press `CTRL+C`. Status will show Docker container instances terminating. If the environment is running in the background (`-d` command line param), you can use `docker-compose down` to terminate the environment.
 
+### Connecting to Container(s) with SSH
+If you run your environment in the background, you can use Docker's CLI to connect directly to a container that supports SSH. First you need to find the unique container id generated when starting the evironment. To do this, use the `docker ps` command. One entry will show your react container. Second, Copy that id and then this command will connect you to SSH on that container:
+
+`docker exec -it [copied-container-id] /bin/bash`
+
 ### Connecting to MySQL with a client
 MySQL running as a Docker container registers itself on the local machine, so the host is `localhost`, or more reliably `127.0.0.1` loopback address. The username and password (defined in `docker-compose.yml`) default to `root`, and the port is default `3306`.

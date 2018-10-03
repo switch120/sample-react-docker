@@ -7,21 +7,9 @@
     "react-dom": "^16.5.2",
     "react-scripts": "2.0.3"
   },
-  "config": {
-    "image": "samples/react-docker:latest",
-    "container": "placeholder"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predocker": ":> output.log",
-    "docker": "npm run docker:container \"$(docker run -id -p 3000:3000 -v ${PWD}:/usr/src/app $npm_package_config_image)\"",
-    "docker:ssh": "docker exec -it $npm_package_config_container /bin/bash",
-    "docker:build": "docker build -t $npm_package_config_image .",
-    "docker:stop": "docker container stop $npm_package_config_container",
-    "docker:container": "npm config set $npm_package_name:container --",
-    "docker:output": "clear && tail -f output.log",
-    "postdocker": "npm run docker:output",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
