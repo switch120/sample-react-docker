@@ -1,0 +1,44 @@
+version: '3.3'
+
+services:
+  react:
+    build: .
+    image: samples/react-docker:latest
+    depends_on:
+       - mysql
+       - api
+    volumes:
+      - .:/usr/src/app
+    restart: always
+    ports:
+      - 3000:3000
+    links:
+      - mysql
+      - api
+  mysql:
+    image: mysql:5.7
+    volumes:
+       - db_data:/var/lib/mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=react
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=root
+  api:
+    build: ./api
+    image: node:8
+    depends_on:
+      - mysql
+    volumes:
+      - ./api:/usr/src/app
+    restart: always
+    ports:
+      - 3005:3005
+    environment:
+      - PORT=3005
+    #command:
+    #  - nodemon server.js
+volumes:
+    db_data:
