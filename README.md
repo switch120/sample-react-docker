@@ -41,10 +41,10 @@ This is not an exhaustive list, just some worth noting
 
 ### Getting started (first run)
 Build the Images first: `docker-compose build`
-> Note: This is done only once, unless there is a need to delete the image from docker (`docker images rm [imageGuid]`(link)).
+> *Note*: This is done only once, unless there is a need to delete the image from docker (`docker images rm [imageGuid]`(link)).
 This command will read the `docker-compose.yml` file, which specifies *build* parameters (in Ruby syntax (link)) as directories that contain a `Dockerfile` (link) spec.
 
-> Another Note: while you only *need* to run `docker-compose build` *once*, it's *completely* harmless to run it at any point in time. Doing this will re-install any missing packages in your containers (as long as you have not removed the `npm install` statements from each `Dockerfile`)
+> *Another Note*: while you only *need* to run `docker-compose build` *once*, it's *completely* harmless to run it at any point in time. Doing this will re-install any missing packages in your containers (as long as you have not removed the `npm install` statements from each `Dockerfile`)
 
 ### Starting the Environment
 `docker-compose up`
