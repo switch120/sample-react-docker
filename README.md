@@ -2,7 +2,7 @@
 
 This project is intended to serve as a base shell for a full-stack React application with a MySQL Database and an Express backend API. The environment is defined using *docker-compose* (link), which runs three independent containers for React, MySQL, and Express simultaneously.
 
-Both the React Dev server and the Express server will automatically detect changes and recompile automatically. Output from both can be seen while the environment is running in the foreground (i.e., without the `-d` flag (link))
+Both the React Dev server and the Express server will detect changes and recompile automatically. Output from both can be seen while the environment is running in the foreground (i.e., without the `-d` flag (link))
 
 The React source (`/src`) was built using `create-react-app@2.0.2` (link). If a more recent version is preferred, the `/src` folder can safely be replaced in its entirety as long as the start command is still `npm start`.
 
