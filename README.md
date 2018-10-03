@@ -37,18 +37,21 @@ This is not an exhaustive list, just some worth noting
 +-- /.dockerignore                : Docker copy ignore (link)
 ```
 
-### Getting started (first run)
-Build the Images first: `docker-compose build`
-> **Note**: This is done only once, unless there is a need to delete the image from docker (`docker images rm [imageGuid]`(link)).
-This command will read the `docker-compose.yml` file, which specifies **build** parameters (in Ruby syntax (link)) as directories that contain a `Dockerfile` (link) spec.
-
-> **Another Note**: while you only **need** to run `docker-compose build` *once*, it's **completely** harmless to run it at any point in time. Doing this will re-install any missing packages in your containers (as long as you have not removed the `npm install` statements from each `Dockerfile`)
-
 ### Starting the Environment
 `docker-compose up`
 
+This command will read the `docker-compose.yml` file, which specifies **build** parameters (in Ruby syntax (link)) as directories that contain a `Dockerfile` (link) spec.
+
+> **Note**: first run will build all three images (see manual rebuilding below), and will several minutes. Subsequent restarts should be very quick.
+
 ### Terminating Environment
 While `docker-compose` is running, press `CTRL+C`. Status will show Docker container instances terminating. If the environment is running in the background (`-d` command line param), you can use `docker-compose down` to terminate the environment.
+
+### Manually rebuilding the images (not usually necessary)
+`docker-compose build`
+> **Note**: This runs only once automatically, on first `docker-compose up`. It should not need to be manually run again unless there is a need to delete an image from docker (`docker images rm [imageGuid]`(link)).
+
+> **Another Note**: It's **completely** harmless to run this at any point in time. Doing this will re-install any missing packages in your containers (as long as you have not removed the `npm install` statements from each `Dockerfile`)
 
 ### Connecting to Container(s) with SSH
 If you run your environment in the background, you can use Docker's CLI to connect directly to a container that supports SSH. First you need to find the unique container id generated when starting the evironment. To do this, use the `docker ps` command. One entry will show your react container. Second, Copy that id and then this command will connect you to SSH on that container:
