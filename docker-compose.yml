@@ -5,7 +5,6 @@ services:
     build: .
     image: samples/react-docker:latest
     depends_on:
-       - mysql
        - api
     volumes:
       - .:/usr/src/app
@@ -15,10 +14,8 @@ services:
     links:
       - mysql
       - api
-  mysql:
+  db:
     image: mysql:5.7
-    volumes:
-       - db_data:/var/lib/mysql
     restart: always
     ports:
       - 3306:3306
@@ -30,7 +27,7 @@ services:
     build: ./api
     image: node:8
     depends_on:
-      - mysql
+      - db
     volumes:
       - ./api:/usr/src/app
     restart: always
@@ -38,7 +35,3 @@ services:
       - 3005:3005
     environment:
       - PORT=3005
-    #command:
-    #  - nodemon server.js
-volumes:
-    db_data:
