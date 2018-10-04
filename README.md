@@ -41,7 +41,11 @@ This is not an exhaustive list, just some worth noting
 |   +-- /Dockerfile               : Docker build spec for Express
 +-- /src                          : React App
 +-- /Dockerfile                   : Docker build spec for React
-+-- /docker-compose.yml           : Docker environment spec
++-- /docker-compose.yml           : Full Stack Docker environment spec
++-- /react.yml                    : [standalone] React Docker environment spec
++-- /express.yml                  : [standalone] Express Docker environment spec
++-- /mysql.yml                    : [standalone] MySQL Docker environment spec
++-- /mongo.yml                    : [standalone] Mongo Docker environment spec
 +-- /.dockerignore                : Docker copy ignore (link)
 ```
 
