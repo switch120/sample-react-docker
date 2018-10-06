@@ -16,7 +16,8 @@
     "docker:mysql": "docker-compose -f mysql.yml up",
     "docker:mongo": "docker-compose -f mongo.yml up",
     "docker:express": "docker-compose -f express.yml up",
-    "docker:react": "docker-compose -f react.yml up"
+    "docker:react": "docker-compose -f react.yml up",
+    "docker:clean": "docker rmi $(docker images -qa -f 'dangling=true') --force"
   },
   "eslintConfig": {
     "extends": "react-app"
