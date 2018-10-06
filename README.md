@@ -93,6 +93,7 @@ MySQL/Mongo running as a Docker container registers itself on the local machine,
 When ready, this project can be deployed to the Heroku container using the Heroku CLI. Before doing anything, log in to Heroku **and** the Heroku Container Registry.
 
 `heroku login`
+
 `heroku container:login`
 
 > **Important**: For first deployment be sure to run `heroku create` to initialize the app, or use the CLI to connect to an existing project
@@ -101,7 +102,7 @@ Now you're ready to buid and deploy. An **npm** script is provided in `package.j
 
 `npm run deploy`
 
-Tl;Dr; this does the following:
+**tl;dr;** this does the following:
 * Builds the React App - outputs to `/build` folder
 * Docker image built from `./Dockerfile`, which copies React build artifacts and the Express app to the deployment image
 * Sets Heroku Config Var NODE_END to "production" (so Express serves static content)
