@@ -9,10 +9,10 @@ The React source (`/src`) was built using `create-react-app@2.0.2` https://www.n
 > **NOTE on overwriting `/src/`** - this folder contains a `Dockerfile` for the local development environment. If you replace the contents of `/src`, just be sure to keep that file or your dev web container won't spin up.
 
 ## Requisites
-* Docker (https://docs.docker.com/)
+* [Docker](https://docs.docker.com/)
 * npm >= 6
 * NodeJS >= 8
-* Heroku CLI (for deployment only)
+* [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) (for deployment only)
 
 ## Quick Reference
 * React Dev Server (frontend)
@@ -107,6 +107,11 @@ Now you're ready to buid and deploy. An **npm** script is provided in `package.j
 * Docker image built from `./Dockerfile`, which copies React build artifacts and the Express app to the deployment image
 * Sets Heroku Config Var NODE_ENV to "production" (so Express serves static content)
 * Heroku build & release
+
+### Heroku Config Vars (environment variables)
+The [Heroku Config Vars](https://devcenter.heroku.com/articles/config-vars) for each project function identical to entries in a `.env` file. Any sensitive credentials your app needs can be added to Heroku Config Vars with the same Key as in the `/api/.env` file and it will be used as the production environment setting.
+
+Example: local `.env` file contains `AWS_KEY` with personal developer key. The Heroku Config Vars for the project can specify `AWS_KEY` as config key, and the value would be the production API key. This insulates all private key data from the repo and public access.
 
 ### Docker Cleanup
 There is an npm script in `package.json` that will clean up "dangling" images from Docker. Every so often it's recommended you run this command:
