@@ -6,6 +6,6 @@
     "express": "^4.16.3"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   }
 }

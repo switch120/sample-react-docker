@@ -11,6 +11,10 @@ var PORT = process.env.PORT || 3005;
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+console.log("wtf?");
+if (process.env.NODE_ENV === "PROD") {
+  app.use(express.static("build"));
+}
 
 // Routes
 // =============================================================
