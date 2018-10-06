@@ -105,7 +105,7 @@ Now you're ready to buid and deploy. An **npm** script is provided in `package.j
 **tl;dr;** this does the following:
 * Builds the React App - outputs to `/build` folder
 * Docker image built from `./Dockerfile`, which copies React build artifacts and the Express app to the deployment image
-* Sets Heroku Config Var NODE_END to "production" (so Express serves static content)
+* Sets Heroku Config Var NODE_ENV to "production" (so Express serves static content)
 * Heroku build & release
 
 ### Docker Cleanup
