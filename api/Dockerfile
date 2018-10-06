@@ -14,6 +14,9 @@ WORKDIR /usr/src/app
 # You can pick individual files based on your need
 COPY . .
 
+# First build, create the local .env file
+#RUN cp -n .env.sample .env
+
 # Install nodemon globally
 RUN npm install -g nodemon
 

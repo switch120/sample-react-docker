@@ -27,7 +27,7 @@ services:
   api:
     build: ./api
     image: node:8
-    env_file: ./api/.env
+    #env_file: ./api/.env
     depends_on:
       - db
     volumes:
