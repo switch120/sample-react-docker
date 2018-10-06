@@ -40,9 +40,9 @@ This is not an exhaustive list, just some worth noting
 ```
 +-- /api                          : Express Server
 |   +-- /.env.sample              : Sample .env
-|   +-- /Dockerfile               : Docker build spec for Express
-+-- /src                          : React App
-|   +-- /Dockerfile               : Docker build spec for React local dev server
+|   +-- /Dockerfile               : Docker build spec for (local) Express
++-- /src                          : React App Source
+|   +-- /Dockerfile               : Docker build spec for React (local) dev server
 +-- /Dockerfile                   : Docker Deploy build spec for React/Express/Heroku (production build/deploy)
 +-- /docker-compose.yml           : Full Stack Docker environment spec (local development)
 +-- /react.yml                    : [standalone] React Docker environment spec
