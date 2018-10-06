@@ -1,10 +1,10 @@
 # React, MySQL, Mongo, Express API Docker Shell
 
-This project is intended to serve as a base shell for a full-stack React application with a MySQL (or Mongo) Database and an Express backend API. The full-stack environment is defined using *docker-compose* (https://docs.docker.com/compose/), which runs three independent containers for React, Database (MySQL/Mongo), and Express simultaneously. To run Mongo instead of MySQL, you will need to modify the `db:` entry in `docker-compose.yml` and replace with the settings from `mongo.yml`.
+This project is intended to serve as a base shell for a full-stack React application with a MySQL (or Mongo) Database and an Express backend API. The local full-stack environment is defined using [Docker Compose](https://docs.docker.com/compose/), which runs three independent containers for React, Database (MySQL/Mongo), and Express simultaneously. To run Mongo instead of MySQL, you will need to modify the `db:` entry in `docker-compose.yml` and replace with the settings from `mongo.yml`.
 
 Both the React Dev server and the Express server will detect changes and recompile automatically. Output from both can be seen while the environment is running in the foreground (i.e., without the `-d` flag)
 
-The React source (`/src`) was built using `create-react-app@2.0.2` (https://www.npmjs.com/package/create-react-app?activeTab=versions). If a more recent version is preferred, the `/src` folder can safely be over-written in its entirety as long as the start command is still `npm start`. 
+The React source (`/src`) was built using `create-react-app@2.0.2` https://www.npmjs.com/package/create-react-app?activeTab=versions. If a more recent version is preferred, the `/src` folder can safely be over-written in its entirety as long as the start command is still `npm start`. 
 
 > **NOTE on overwriting `/src/`** - this folder contains a `Dockerfile` for the local development environment. If you replace the contents of `/src`, just be sure to keep that file or your dev web container won't spin up.
 
@@ -60,7 +60,7 @@ To start the local development environment, run this command:
 
 `docker-compose up`
 
-This command will read the `docker-compose.yml` file, which specifies **build** parameters (in Ruby syntax (https://docs.docker.com/engine/reference/commandline/build/#extended-description)) that sets up the local development environment. This is **not a production build**, this is for local only.
+This command will read the `docker-compose.yml` file, which specifies **build** parameters (in [Ruby syntax](https://docs.docker.com/engine/reference/commandline/build/#extended-description)) that sets up the local development environment. This is **not a production build**, this is for local only.
 
 > **Note**: first run will build all three images (see manual rebuilding below), and will take several minutes. Subsequent restarts should be very quick.
 
@@ -69,7 +69,7 @@ While `docker-compose` is running, press `CTRL+C`. Status will show Docker conta
 
 ### Manually rebuilding the images (not usually necessary)
 `docker-compose build`
-> **Note**: This runs only once automatically, on first `docker-compose up`. It should not need to be manually run again unless there is a need to delete an image from docker (`docker images rm [imageGuid]`(https://docs.docker.com/engine/reference/commandline/image_rm/)).
+> **Note**: This runs only once automatically, on first `docker-compose up`. It should not need to be manually run again unless there is a need to delete an image from docker ([`docker rmi [imageGuid]`](https://docs.docker.com/engine/reference/commandline/image_rm/)).
 
 > **Another Note**: It's **completely** harmless to run this at any point in time. Doing this will re-install any missing packages in your containers as long as you have not removed the `npm install` statements from each `Dockerfile`.
 
