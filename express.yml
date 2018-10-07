@@ -3,7 +3,7 @@ version: '3.3'
 services:
   express:
     build: ./api
-    image: node:8
+    image: local/express
     volumes:
       - ./api:/usr/src/app
     restart: always
