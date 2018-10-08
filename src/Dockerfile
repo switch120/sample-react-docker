@@ -14,17 +14,15 @@ WORKDIR /usr/src/app
 # You can pick individual files based on your need
 COPY . .
 
-# First build, create the local .env file
-#RUN cp -n .env.sample .env
-
 # Install nodemon globally
-RUN npm install -g nodemon
+# RUN npm install -g nodemon
 
 # Install dependencies (if any) in package.json
-RUN npm install
+#RUN npm install
 
 # Expose port from container so host can access 3000
 EXPOSE 3000
 
 # Start the Node.js app on load
-CMD [ "nodemon", "server.js" ]
+# CMD [ "npm", "run", "react:start" ]
+CMD [ "react-scripts", "start" ]

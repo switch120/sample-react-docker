@@ -2,8 +2,8 @@ version: '3.3'
 
 services:
   react:
-    build: .
-    image: samples/react-docker:latest
+    build: ./src
+    image: local/react
     depends_on:
        - api
     volumes:
@@ -12,8 +12,9 @@ services:
     ports:
       - 3000:3000
     links:
-      - mysql
+      - db
       - api
+    command: npm run react:start
   db:
     image: mysql:5.7
     restart: always
@@ -25,7 +26,7 @@ services:
       - MYSQL_ROOT_PASSWORD=root
   api:
     build: ./api
-    image: node:8
+    image: local/express
     depends_on:
       - db
     volumes:

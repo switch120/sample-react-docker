@@ -5,23 +5,20 @@ FROM node:8
 #MAINTAINER nobody@nowhere.com
 
 # Create a working directory 
-RUN mkdir -p /usr/src/app
+RUN mkdir -p /var/www
 
 # Switch to working directory
-WORKDIR /usr/src/app
+WORKDIR /var/www
 
-# Copy contents of local folder to `WORKDIR`
-# You can pick individual files based on your need
-COPY . .
+# Copy contents of api folder to `WORKDIR` (root of build is now Express App)
+COPY ./api .
+# Copy the React build artifacts to a separate folder for static middleware
+COPY ./build ./build
 
-# Install nodemon globally
-RUN npm install -g nodemon
-
-# Install dependencies (if any) in package.json
+# Install dependencies ... package.json from ./api is now in the root of container (so it's referenced here!)
 RUN npm install
 
-# Expose port from container so host can access 3000
-EXPOSE 3000
+# NOTE: Heroku does not support specifying ports
 
 # Start the Node.js app on load
 CMD [ "npm", "start" ]
