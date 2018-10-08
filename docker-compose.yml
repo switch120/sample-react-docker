@@ -2,12 +2,15 @@ version: '3.3'
 
 services:
   react:
-    build: ./src
+    build: 
+      context: .
+      dockerfile: ./Dockerfile.react
     image: local/react
     depends_on:
        - api
     volumes:
       - .:/usr/src/app
+      - /usr/src/app/node_modules/
     restart: always
     ports:
       - 3000:3000
@@ -25,12 +28,15 @@ services:
       - MYSQL_USER=root
       - MYSQL_ROOT_PASSWORD=root
   api:
-    build: ./api
+    build: 
+      context: ./api
+      dockerfile: ../Dockerfile.express 
     image: local/express
     depends_on:
       - db
     volumes:
       - ./api:/usr/src/app
+      - /usr/src/app/node_modules/
     restart: always
     ports:
       - 3005:3005
