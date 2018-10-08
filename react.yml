@@ -2,10 +2,13 @@ version: '3.3'
 
 services:
   react:
-    build: .
-    image: samples/react-docker:latest
+    build: 
+      context: .
+      dockerfile: ./Dockerfile.react
+    image: local/react
     volumes:
       - .:/usr/src/app
+      - /usr/src/app/node_modules/
     restart: always
     ports:
       - 3000:3000
