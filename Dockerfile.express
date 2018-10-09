@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 
 # Copy contents of local folder to `WORKDIR`
 # You can pick individual files based on your need
-COPY . .
+COPY ./api/ .
 
 # First build, create the local .env file
 #RUN cp -n .env.sample .env

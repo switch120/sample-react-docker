@@ -29,8 +29,8 @@ services:
       - MYSQL_ROOT_PASSWORD=root
   api:
     build: 
-      context: ./api
-      dockerfile: ../Dockerfile.express 
+      context: .
+      dockerfile: ./Dockerfile.express 
     image: local/express
     depends_on:
       - db
