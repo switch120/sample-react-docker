@@ -9,6 +9,9 @@ package-lock.json
 # testing
 /coverage
 
+# Database mounted data
+/data
+
 # production
 /build
 
