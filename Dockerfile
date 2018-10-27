@@ -1,3 +1,5 @@
+# This Dockerfile is for Heroku deployments only!
+
 # A node.js v8 box
 FROM node:8
 

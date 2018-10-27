@@ -3,9 +3,9 @@ version: '3.3'
 services:
    mongo:
     image: mongo
-    restart: always
-    volumes:
-      - ./data/mongo:/data/db
+    restart: "no"
+    #volumes:
+    #  - ./data/mongo:/data/db      # Mac/Linux: uncomment to persist data
     ports:
       - 27017:27017
     environment:

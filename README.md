@@ -16,7 +16,8 @@ The React source (`/src`) was built using `create-react-app@2.0.2` https://www.n
 * React Dev Server (frontend)
   * http://localhost:3000
 * Express API (backend)
-  * http://localhost:3005/api
+  * http://localhost:3001/api
+  * **IMPORTANT**: If you modify `/api/package.json` or `/api/.env` you will need to run `npm run docker:build` to update the image
 * MySQL
   * Port: 3306
   * User: root

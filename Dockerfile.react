@@ -14,9 +14,6 @@ WORKDIR /usr/src/app
 # You can pick individual files based on your need
 COPY . .
 
-# Install nodemon globally
-# RUN npm install -g nodemon
-
 # Install dependencies (if any) in package.json
 RUN npm install
 

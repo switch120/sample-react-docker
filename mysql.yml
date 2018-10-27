@@ -3,9 +3,9 @@ version: '3.3'
 services:
    mysql:
     image: mysql:5.7
-    restart: always
-    volumes:
-      - ./data/mysql:/var/lib/mysql
+    restart: "no"
+    #volumes:
+    #  - ./data/mysql:/var/lib/mysql    # Mac/Linux: uncomment to persist data
     ports:
       - 3306:3306
     environment:

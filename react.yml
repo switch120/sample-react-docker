@@ -8,7 +8,7 @@ services:
     image: local/react
     volumes:
       - .:/usr/src/app
-      - /usr/src/app/node_modules/
+      - /usr/src/app/node_modules/      # mounts empty folder so npm can install on the image
     restart: always
     ports:
       - 3000:3000

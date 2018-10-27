@@ -8,9 +8,9 @@ services:
     image: local/express
     volumes:
       - ./api:/usr/src/app
-      - /usr/src/app/node_modules/
+      - /usr/src/app/node_modules/          # mounts empty folder so npm can install on the image
     restart: always
     ports:
-      - 3005:3005
+      - 3001:3001
     environment:
-      - PORT=3005
+      - PORT=3001
