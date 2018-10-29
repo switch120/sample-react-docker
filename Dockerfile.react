@@ -21,5 +21,4 @@ RUN npm install
 EXPOSE 3000
 
 # Start the Node.js app on load
-# CMD [ "npm", "run", "react:start" ]
-CMD [ "react-scripts", "start" ]
+CMD [ "npm", "run", "react:start" ]
