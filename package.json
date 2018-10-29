@@ -12,7 +12,7 @@
   "scripts": {
     "start": "docker-compose up",
     "docker:fullstack": "docker-compose up",
-    "deploy": "npm run react:build && heroku config:set NODE_ENV=production && heroku container:push web && heroku container:release web",
+    "deploy": "heroku container:push web && heroku container:release web",
     "react:start": "react-scripts start",
     "react:build": "react-scripts build",
     "docker:mysql": "docker-compose -f mysql.yml up",
