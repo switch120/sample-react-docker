@@ -1,13 +1,6 @@
 // Dependencies
 // =============================================================
-
 var express = require("express");
-// var fs = require('fs');
-
-// if the .env.sample file hasn't been copied to the .env file, pull in the sample
-// if (!fs.existsSync(".env")) {
-//   fs.writeFileSync(".env", fs.readFileSync(".env.sample"));
-// }
 
 require('dotenv').config();
 
@@ -29,10 +22,9 @@ if (process.env.NODE_ENV === "production") {
 // Routes
 // =============================================================
 
-// Basic route that sends the user first to the AJAX Page
-app.get("/api", function(req, res) {
-  res.statusCode = 200;
-  res.send("success");
+// Basic route
+app.get("/api/test", function(req, res) {
+  res.json({status: "success"});
 });
 
 // Starts the server to begin listening

@@ -6,25 +6,21 @@ services:
       context: .
       dockerfile: ./Dockerfile.react
     image: local/react
-    depends_on:
-       - api
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules/    # mounts empty folder so npm can install on the image
     restart: always
-    ports:
-      - 3000:3000
-    links:
-      - db
-      - api
+    ports:                            # these services all share ports in Dev mode (see network_mode)
+      - 3000:3000                     # defines port mapping for React dev server
+      - 3001:3001                     # defines port mapping for Express API server
+      - 3306:3306                     # defines port mapping for MySql
     command: npm run react:start
   db:
     image: mysql:5.7
     restart: "no"
     #volumes:
-      #- ./data/mysql:/var/lib/mysql    # Mac/Linux: uncomment to persist data
-    ports:
-      - 3306:3306
+      #- ./data/mysql:/var/lib/mysql  # Mac/Linux: uncomment to persist data
+    network_mode: service:react       # share this network with React service
     environment:
       - MYSQL_DATABASE=react
       - MYSQL_USER=root
@@ -34,13 +30,10 @@ services:
       context: .
       dockerfile: ./Dockerfile.express 
     image: local/express
-    depends_on:
-      - db
     volumes:
       - ./api:/usr/src/app
       - /usr/src/app/node_modules/    # mounts empty folder so npm can install on the image
     restart: always
-    ports:
-      - 3001:3001
+    network_mode: service:react       # share this network with React service so the proxy in package.json will work correctly
     environment:
       - PORT=3001

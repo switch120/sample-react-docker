@@ -22,7 +22,7 @@
     "docker:build": "docker-compose build",
     "docker:clean": "docker rmi $(docker images -qa -f 'dangling=true') --force"
   },
-  "proxy": "http://localhost:3001/",
+  "proxy": "http://127.0.0.1:3001/",
   "eslintConfig": {
     "extends": "react-app"
   },
