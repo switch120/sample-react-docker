@@ -48,5 +48,6 @@ sudo snap install --classic heroku
 # allow non-root user to invoke a Node server on ports < 1024
 #sudo setcap 'cap_net_bind_service=+ep' /usr/bin/node
 
-cd /var/www
-sudo npm install
+# Don't need to run npm install locally ... the docker images will do it when the image is built!
+#cd /var/www
+#sudo npm install
