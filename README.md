@@ -67,8 +67,6 @@ Start up the VM with `vagrant up`. Once booted, `vagrant ssh` to access the term
 
 ### Starting Full Stack Environment
 
-#### Windows Users
-
 > **First** - if you are going to need custom `environment` variables, copy `/api/.env.sample` to `/api/.env`. This file **will not be committed to source control** and is intended for local development only. These values should be matched in **Heroku Config Vars** for production apps.
 
 To start the local development environment, run this command:
