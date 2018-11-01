@@ -117,11 +117,11 @@ Before doing anything, log in to Heroku **and** the Heroku Container Registry.
 
 Now you're ready to buid and deploy. An **npm** script is provided in `package.json`:
 
-> NOTE: Before deploying, ensure all **React dependencies from `package.json`** are also added to `/api/package.json`. That file is copied as the deployed `package.json` and the dependencies are needed so Docker can comile react while building the image.
+> NOTE: Before deploying, ensure all **React dependencies from `package.json`** are also added to `/api/package.json`. That file is copied as the deployed `package.json` and the dependencies are needed so Docker can compile React while building the image.
 
 `npm run deploy`
 
-**tl;dr;** this does the following:
+**Tl;Dr;** this does the following:
 * Docker image built from `./Dockerfile`, which builds the React app on the fly, and copies the Express app to the root of the deployment image
 * Sets Heroku Config Var NODE_ENV to "production" (so Express serves static content)
 * Heroku build & release
