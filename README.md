@@ -14,10 +14,11 @@ The React source (`/src`) was built using `create-react-app@2.0.2` https://www.n
 
 ## Quick Reference
 * React Dev Server (frontend)
-  * http://localhost:3000
+  * http://localhost:3000*
 * Express API (backend)
-  * http://localhost:3001/api
+  * http://localhost:3001/api*
   * **IMPORTANT**: If you modify `/api/package.json` or `/api/.env` you will need to run `npm run docker:build` to update the image
+  * React Proxys HTTP requests to 3001 in Dev mode (see `package.json`)
 * MySQL
   * Port: 3306
   * User: root
@@ -32,6 +33,8 @@ The React source (`/src`) was built using `create-react-app@2.0.2` https://www.n
   * Express Standalone: [express.yml](express.yml)
   * MySQL Standalone: [mysql.yml](mysql.yml)
   * Mongo Standalone: [mongo.yml](mongo.yml)
+
+> * **Note on localhost** - if you use the optional Vagrant VM instead of native Docker, the endpoint url will be either your VM IP address, or the host you've defined in `/etc/hosts`.
 
 ## [Notable] File Structure
 This is not an exhaustive list, just some worth noting
