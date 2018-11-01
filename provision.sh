@@ -42,6 +42,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo groupadd docker
 sudo gpasswd -a vagrant docker
 
+# Install Heroku command line
+sudo snap install --classic heroku
+
 # allow non-root user to invoke a Node server on ports < 1024
 #sudo setcap 'cap_net_bind_service=+ep' /usr/bin/node
 

@@ -107,7 +107,9 @@ If you run your environment in the background, you can use Docker's CLI to conne
 MySQL/Mongo running as a Docker container registers itself on the local machine, so the host is `localhost` or, more reliably, `127.0.0.1` loopback address. The username and password (defined in `docker-compose.yml`) default to `root`, and the port is default `3306` for MySQL and default `27017` for Mongo.
 
 ## Deploying to Heroku
-When ready, this project can be deployed to the Heroku container using the Heroku CLI. Before doing anything, log in to Heroku **and** the Heroku Container Registry.
+When ready, this project can be deployed to the Heroku container using the Heroku CLI. You will need to install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install) **unless** you're using the Vagrant VM; the Provisioner for Vagrant automatically installs this.
+
+Before doing anything, log in to Heroku **and** the Heroku Container Registry.
 
 `heroku login`
 
