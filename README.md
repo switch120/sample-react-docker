@@ -4,7 +4,7 @@ This project is intended to serve as a base shell for a full-stack React applica
 
 Both the React Dev server and the Express server will detect changes and recompile automatically. Output from both can be seen while the environment is running in the foreground (i.e., without the `-d` flag)
 
-The React source (`/src`) was built using `create-react-app@2.0.2` https://www.npmjs.com/package/create-react-app?activeTab=versions. If a more recent version is preferred, the `/src` folder can safely be over-written in its entirety. 
+The React source (`/src`) was built using [`create-react-app@2.0.2`](https://www.npmjs.com/package/create-react-app?activeTab=versions). If a more recent version is preferred, the `/src` folder can safely be over-written in its entirety. 
 
 ## Requisites
 * [Docker](https://docs.docker.com/)
