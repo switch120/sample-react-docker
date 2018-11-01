@@ -42,24 +42,37 @@ This is not an exhaustive list, just some worth noting
 |   +-- /package.json             : Express dependencies
 +-- /Public                       : React Public assets
 +-- /src                          : React App Source
++-- /.dockerignore                : Docker copy ignore (https://docs.docker.com/engine/reference/builder/#dockerignore-file)
 +-- /Dockerfile                   : Docker Deploy build spec for React/Express/Heroku (production build/deploy)
 +-- /Dockerfile.express           : Docker build spec for (local) Express
 +-- /Dockerfile.react             : Docker build spec for React (local) dev server
 +-- /docker-compose.yml           : Full Stack Docker environment spec (local development)
-+-- /react.yml                    : [standalone] React Docker environment spec
 +-- /express.yml                  : [standalone] Express Docker environment spec
-+-- /mysql.yml                    : [standalone] MySQL Docker environment spec
 +-- /mongo.yml                    : [standalone] Mongo Docker environment spec
-+-- /.dockerignore                : Docker copy ignore (https://docs.docker.com/engine/reference/builder/#dockerignore-file)
++-- /mysql.yml                    : [standalone] MySQL Docker environment spec
++-- /react.yml                    : [standalone] React Docker environment spec
++-- /provision.sh                 : Provisioner for [optional] Vagrant VM
++-- /vagrantfile                  : Vagrant VM definition
 ```
 
+### [Optional] Virtualized Environment
+If you're using Windows and cannot use Docker natively without using the helper VM, it's recommended you use the packaged Vagrant box within this repo. This will create a VM with Docker pre-installed that forwards `fs-notify` events from the host operating system. **Without this, React and Nodemon will not detect changes to your files and your application will never recompile itself in Dev mode**
+
+Start up the VM with `vagrant up`. Once booted, `vagrant ssh` to access the terminal, and change to the `/var/www` folder where the entire contents of this application is mounted as a shared folder.
+
+> **Note** - if your OS supports Docker without the helper VM, it's just as easy to run this application locally with Docker instead of within the VM. **Dealers choice**!
+
 ### Starting Full Stack Environment
+
+#### Windows Users
 
 > **First** - if you are going to need custom `environment` variables, copy `/api/.env.sample` to `/api/.env`. This file **will not be committed to source control** and is intended for local development only. These values should be matched in **Heroku Config Vars** for production apps.
 
 To start the local development environment, run this command:
 
 `docker-compose up`
+
+> Inside a VM, run this command from `/var/www`
 
 This command will read the `docker-compose.yml` file, which specifies **build** parameters (in [Ruby syntax](https://docs.docker.com/engine/reference/commandline/build/#extended-description)) that sets up the local development environment. This is **not a production build**, this is for local only.
 

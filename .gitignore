@@ -9,6 +9,9 @@ package-lock.json
 # testing
 /coverage
 
+# Vagrant
+.vagrant
+
 # Database mounted data
 /data
 
