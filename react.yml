@@ -10,5 +10,7 @@ services:
       - .:/usr/src/app
       - /usr/src/app/node_modules/      # mounts empty folder so npm can install on the image
     restart: always
+    environment:
+      - CHOKIDAR_USEPOLLING=true        # enable fs event forwarding for file change detection (webpack)
     ports:
       - 3000:3000

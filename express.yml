@@ -14,3 +14,4 @@ services:
       - 3001:3001
     environment:
       - PORT=3001
+      - CHOKIDAR_USEPOLLING=true      # enable fs event forwarding for file change detection (webpack)

@@ -10,6 +10,8 @@ services:
       - .:/usr/src/app
       - /usr/src/app/node_modules/    # mounts empty folder so npm can install on the image
     restart: always
+    environment:
+      - CHOKIDAR_USEPOLLING=true      # enable fs event forwarding for file change detection (webpack)
     ports:                            # these services all share ports in Dev mode (see network_mode)
       - 3000:3000                     # defines port mapping for React dev server
       - 3001:3001                     # defines port mapping for Express API server
@@ -37,3 +39,4 @@ services:
     network_mode: service:react       # share this network with React service so the proxy in package.json will work correctly
     environment:
       - PORT=3001
+      - CHOKIDAR_USEPOLLING=true      # enable fs event forwarding for file change detection (webpack)
