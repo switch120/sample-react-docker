@@ -24,7 +24,7 @@ COPY ./public ./public
 # COPY ./build ./build
 
 # Install dependencies ... package.json from ./api is now in the root of container (so it's referenced here!)
-RUN npm install
+RUN yarn install
 
 #RUN npm install -g react react-scripts
 
