@@ -1,7 +1,7 @@
 # This Dockerfile is for Heroku deployments only!
 
-# A node.js v8 box
-FROM node:8
+# A node.js v10 box
+FROM node:10
 
 # Who(m) to blame if nothing works
 #MAINTAINER nobody@nowhere.com
